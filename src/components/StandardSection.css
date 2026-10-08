@@ -1,0 +1,191 @@
+.standard-section {
+  width: 100%;
+  padding: 85px 0;
+
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.standard-wrapper {
+  position: relative;
+
+  width: min(1180px, 88%);
+  min-height: 470px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+/* BIJELA KARTICA */
+
+.standard-card {
+  position: relative;
+  z-index: 3;
+
+  width: 46%;
+  min-height: 395px;
+
+  padding: 42px 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.94);
+
+  text-align: center;
+}
+
+.standard-brand {
+  margin: 0 0 3px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  letter-spacing: 4px;
+
+  color: #111111;
+}
+
+.standard-card h2 {
+  margin: 0;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  color: #6686bb;
+}
+
+.standard-subtitle {
+  margin: 7px 0 30px;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #777777;
+}
+
+.standard-card h3 {
+  margin: 0 0 18px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 27px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  color: #111111;
+}
+
+.standard-text {
+  max-width: 390px;
+  margin: 0 auto 27px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #616161;
+}
+
+.standard-button {
+  display: inline-block;
+
+  padding: 13px 29px;
+
+  border-radius: 50px;
+
+  background-color: #6686bb;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.standard-button:hover {
+  transform: translateY(-2px);
+  background-color: #7897c8;
+}
+
+/* TOČKICE */
+
+.standard-dots {
+  margin-top: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.standard-dot {
+  width: 10px;
+  height: 10px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #111111;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.standard-dot.active {
+  background-color: #6686bb;
+  transform: scale(1.2);
+}
+
+/* SLIKA DESNO */
+
+.standard-image-wrapper {
+  position: relative;
+  z-index: 1;
+
+  width: 62%;
+  height: 470px;
+
+  margin-left: -55px;
+
+  overflow: hidden;
+}
+.standard-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+
+  animation: standardFade 0.8s ease;
+}
+
+@keyframes standardFade {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

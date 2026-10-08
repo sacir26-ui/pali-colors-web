@@ -1,0 +1,272 @@
+.transformation-section {
+  width: 100%;
+  padding: 80px 0 95px;
+
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.transformation-inner {
+  width: min(1380px, 92%);
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.transformation-title {
+  margin: 0 0 42px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 500;
+
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  color: #111111;
+}
+
+.transformation-brand {
+  color: #6686bb;
+}
+
+/* Š I Ž */
+
+.transformation-caron {
+  position: relative;
+  display: inline-block;
+}
+
+.transformation-caron::after {
+  content: "ˇ";
+
+  position: absolute;
+  left: 50%;
+  top: -0.24em;
+  z-index: 5;
+
+  transform: translateX(-50%);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.66em;
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: 0;
+  color: currentColor;
+
+  pointer-events: none;
+}
+/* CAROUSEL */
+
+.transformation-slider {
+  position: relative;
+
+  width: 100%;
+  height: 330px;
+
+  overflow: hidden;
+}
+
+.transformation-slide {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  padding: 0;
+  border: 0;
+
+  background: transparent;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease,
+    width 0.8s ease,
+    height 0.8s ease;
+
+  transform-origin: center;
+}
+
+.transformation-slide img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* SREDNJI AUTO */
+
+.transformation-slide-center {
+  z-index: 3;
+
+  width: 660px;
+  height: 310px;
+
+  opacity: 1;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(0)
+    scale(1);
+}
+
+/* LIJEVI AUTO */
+
+.transformation-slide-left {
+  z-index: 2;
+
+  width: 440px;
+  height: 230px;
+
+  opacity: 0.25;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(-650px)
+    scale(0.9);
+}
+
+/* DESNI AUTO */
+
+.transformation-slide-right {
+  z-index: 2;
+
+  width: 440px;
+  height: 230px;
+
+  opacity: 0.25;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(650px)
+    scale(0.9);
+}
+
+/* SLIKA KOJA TRENUTNO NIJE VIDLJIVA */
+
+.transformation-slide-hidden {
+  z-index: 1;
+
+  width: 380px;
+  height: 210px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    translateX(900px)
+    scale(0.8);
+}
+
+.transformation-slide-left:hover,
+.transformation-slide-right:hover {
+  opacity: 0.48;
+}
+
+/* TOČKICE */
+
+.transformation-dots {
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: center;
+
+  gap: 9px;
+}
+
+.transformation-dot {
+  width: 9px;
+  height: 9px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background-color: #b7b7b7;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.transformation-dot.active {
+  background-color: #6686bb;
+  transform: scale(1.2);
+}
+
+/* TEKST */
+
+.transformation-text {
+  max-width: 850px;
+
+  margin: 30px auto 0;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #555555;
+}
+
+.transformation-text-bottom {
+  margin-top: 4px;
+}
+
+/* GUMBI */
+
+.transformation-buttons {
+  margin-top: 26px;
+
+  display: flex;
+  justify-content: center;
+
+  gap: 16px;
+}
+
+.transformation-button {
+  min-width: 175px;
+
+  padding: 13px 26px;
+
+  border-radius: 50px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.transformation-button:hover {
+  transform: translateY(-2px);
+}
+
+.transformation-button-dark {
+  background-color: #5e5e5e;
+  color: #ffffff;
+}
+
+.transformation-button-dark:hover {
+  background-color: #494949;
+}
+
+.transformation-button-blue {
+  background-color: #6686bb;
+  color: #ffffff;
+}
+
+.transformation-button-blue:hover {
+  background-color: #7897c8;
+}
