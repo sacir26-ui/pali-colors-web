@@ -1,0 +1,217 @@
+.about-page {
+  width: 100%;
+}
+
+/* HERO */
+
+.about-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background-color: #111111;
+  background-size: cover;
+  background-position: center;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.68),
+    rgba(0, 0, 0, 0.42),
+    rgba(0, 0, 0, 0.68)
+  );
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1100px, 88%);
+
+  text-align: center;
+  color: #ffffff;
+}
+
+.about-hero-eyebrow {
+  margin-bottom: 18px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  letter-spacing: 6px;
+
+  color: #6686bb;
+}
+
+.about-hero h1 {
+  max-width: 950px;
+  margin: 0 auto;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(38px, 4.7vw, 68px);
+  font-weight: 500;
+
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.about-brand {
+  color: #6686bb;
+}
+/* UVODNI TEKST */
+
+.about-intro {
+  padding: 70px 0 55px;
+  background-color: #ffffff;
+}
+
+.about-intro-inner {
+  width: min(980px, 86%);
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.about-intro-inner p {
+  margin: 0 auto 16px;
+
+  font-size: 17px;
+  line-height: 1.75;
+
+  color: #5d5d5d;
+}
+
+.about-intro-inner p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* PRISTUP / VIZIJA */
+
+.about-values {
+  padding: 45px 0 95px;
+
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.about-values-inner {
+  width: min(1150px, 88%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+
+  gap: 85px;
+}
+
+.about-values-content {
+  max-width: 500px;
+}
+
+.about-value-block {
+  margin-bottom: 55px;
+}
+
+.about-value-block:last-child {
+  margin-bottom: 0;
+}
+
+.about-value-block h2 {
+  margin: 0 0 18px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  color: #6686bb;
+}
+
+.about-value-block p {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.75;
+
+  color: #5d5d5d;
+}
+
+.about-values-image {
+  position: relative;
+
+  width: 100%;
+  max-width: 450px;
+  height: 520px;
+
+  margin-left: auto;
+}
+
+.about-pattern {
+  position: absolute;
+  z-index: 1;
+
+  width: 300px;
+  height: 470px;
+
+  right: -55px;
+  bottom: -45px;
+
+  object-fit: cover;
+}
+
+.about-work-image {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+}
+.about-c-caron {
+  position: relative;
+  display: inline-block;
+}
+
+.about-c-caron::after {
+  content: "ˇ";
+
+  position: absolute;
+  left: 50%;
+  top: -0.24em;
+  z-index: 5;
+
+  transform: translateX(-50%);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.66em;
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: 0;
+  color: currentColor;
+
+  pointer-events: none;
+}
+.about-cemu {
+  display: inline-block;
+  white-space: nowrap;
+}

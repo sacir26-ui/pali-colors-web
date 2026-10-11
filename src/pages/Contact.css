@@ -1,0 +1,335 @@
+.contact-page {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.contact-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.5) 55%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1380px, 92%);
+  margin: 0 auto;
+
+  color: #ffffff;
+}
+
+.contact-hero-content p {
+  margin: 0 0 13px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 6px;
+
+  color: #6686bb;
+}
+
+.contact-hero-content h1 {
+  margin: 0;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 500;
+
+  line-height: 1.08;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+
+/* ========================================
+   FORMA
+======================================== */
+
+.contact-form-section {
+  padding: 65px 0 75px;
+
+  background-color: #ffffff;
+}
+
+.contact-form-inner {
+  width: min(960px, 86%);
+  margin: 0 auto;
+}
+
+.contact-form-inner h2 {
+  margin: 0 0 38px;
+
+  text-align: center;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  color: #111111;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-form-row {
+  display: grid;
+  gap: 28px;
+}
+
+.contact-form-row-two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-field {
+  margin-bottom: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.contact-field label {
+  font-size: 14px;
+  line-height: 1.3;
+
+  color: #676767;
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  width: 100%;
+
+  border: 0;
+  outline: none;
+
+  background-color: #d2d2d2;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  color: #333333;
+
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-field input,
+.contact-field select {
+  height: 46px;
+
+  padding: 0 18px;
+
+  border-radius: 24px;
+}
+
+.contact-field textarea {
+  min-height: 135px;
+
+  padding: 15px 18px;
+
+  border-radius: 20px;
+
+  resize: vertical;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #858585;
+}
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+  background-color: #dddddd;
+
+  box-shadow: 0 0 0 2px rgba(102, 134, 187, 0.28);
+}
+
+.contact-submit {
+  width: 100%;
+
+  margin-top: 8px;
+  padding: 14px 30px;
+
+  border: 0;
+  border-radius: 50px;
+
+  background-color: #6686bb;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.contact-submit:hover {
+  transform: translateY(-2px);
+
+  background-color: #7897c8;
+}
+
+
+/* ========================================
+   JAVITE NAM SE
+======================================== */
+
+.contact-info-section {
+  padding: 80px 0 90px;
+
+  background-color: #e5e5e5;
+
+  overflow: hidden;
+}
+
+.contact-info-inner {
+  width: min(1150px, 88%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+
+  align-items: center;
+
+  gap: 90px;
+}
+
+
+/* ========================================
+   SLIKA + PATTERN
+======================================== */
+
+.contact-info-image {
+  position: relative;
+
+  width: 100%;
+  max-width: 560px;
+  height: 360px;
+}
+
+.contact-pattern {
+  position: absolute;
+  z-index: 1;
+
+  width: 72%;
+  height: 82%;
+
+  left: -45px;
+  bottom: -38px;
+
+  object-fit: cover;
+}
+
+.contact-cars-image {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ========================================
+   KONTAKT PODACI
+======================================== */
+
+.contact-info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.contact-info-content h2 {
+  margin: 0 0 34px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(32px, 3vw, 46px);
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  color: #111111;
+}
+
+.contact-info-item {
+  margin-bottom: 27px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 17px;
+
+  color: #656565;
+
+  transition: color 0.25s ease;
+}
+
+.contact-info-item svg {
+  width: 36px;
+  height: 36px;
+
+  color: #6686bb;
+}
+
+.contact-info-item:hover {
+  color: #111111;
+}
+
+.contact-info-location {
+  margin: 5px 0 0;
+
+  font-size: 15px;
+  line-height: 1.65;
+
+  color: #727272;
+}

@@ -1,0 +1,336 @@
+.projects-page {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.projects-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+.projects-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.68) 48%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+
+.projects-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1380px, 92%);
+  margin: 0 auto;
+}
+
+.projects-hero-content p {
+  margin: 0 0 14px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 6px;
+
+  color: #6686bb;
+}
+
+.projects-hero-content h1 {
+  max-width: 850px;
+  margin: 0;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(40px, 4.5vw, 66px);
+  font-weight: 500;
+
+  line-height: 1.08;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+/* =========================
+   UVOD
+========================= */
+
+.projects-intro {
+  padding: 55px 0;
+
+  background-color: #ffffff;
+}
+
+.projects-intro-inner {
+  width: min(980px, 86%);
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.projects-intro-inner p {
+  margin: 0 auto 12px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #606060;
+}
+
+.projects-intro-inner p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
+   GALERIJA
+========================= */
+
+.projects-gallery {
+  padding: 28px 0 70px;
+
+  background-color: #272a2c;
+}
+
+.projects-grid {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+/* =========================
+   KARTICE
+========================= */
+
+.project-card {
+  position: relative;
+
+  height: 430px;
+
+  overflow: hidden;
+
+  background-color: #111111;
+  cursor: pointer;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.5s ease;
+}
+
+.project-card-shade {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.86) 0%,
+    rgba(0, 0, 0, 0.15) 48%,
+    transparent 72%
+  );
+}
+
+.project-card-content {
+  position: absolute;
+  z-index: 2;
+
+  left: 22px;
+  right: 22px;
+  bottom: 20px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.project-card-content h2 {
+  margin: 0 0 4px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.project-card-content p {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.project-arrow {
+  font-size: 30px;
+  line-height: 1;
+
+  color: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.045);
+}
+
+.project-card:hover .project-arrow {
+  transform: translateX(5px);
+  color: #6686bb;
+}
+
+/* =========================
+   KONTAKT
+========================= */
+
+.projects-contact {
+  padding: 38px 0 55px;
+
+  background-color: #ffffff;
+}
+
+.projects-contact-inner {
+  width: min(1150px, 88%);
+  margin: 0 auto;
+}
+
+.projects-contact h2 {
+  margin: 0 0 26px;
+
+  text-align: center;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 27px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  color: #111111;
+}
+
+.projects-contact-form {
+  width: 100%;
+}
+
+.projects-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+
+  gap: 24px;
+
+  margin-bottom: 14px;
+}
+
+.projects-form-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.projects-form-field label {
+  font-size: 12px;
+
+  color: #777777;
+}
+
+.projects-form-field input,
+.projects-form-field select,
+.projects-form-field textarea {
+  width: 100%;
+
+  border: 0;
+  outline: none;
+
+  border-radius: 20px;
+
+  background-color: #d6d6d6;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  color: #333333;
+}
+
+.projects-form-field input,
+.projects-form-field select {
+  height: 38px;
+
+  padding: 0 16px;
+}
+
+.projects-form-field textarea {
+  height: 78px;
+
+  padding: 12px 16px;
+
+  resize: none;
+}
+
+.projects-form-row-bottom {
+  align-items: start;
+}
+
+.projects-submit {
+  width: 60%;
+
+  margin: 10px auto 0;
+
+  padding: 12px 25px;
+
+  display: block;
+
+  border: 0;
+  border-radius: 50px;
+
+  background-color: #6686bb;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.projects-submit:hover {
+  background-color: #7897c8;
+  transform: translateY(-2px);
+}
