@@ -155,3 +155,22 @@ font-family: "Orbitron", sans-serif;
   letter-spacing: 0;
   color: currentColor;
 }
+@media (max-width: 768px) {
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-video {
+    object-fit: cover;
+  }
+
+  .hero h1,
+  .hero-description {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}

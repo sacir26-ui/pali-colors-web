@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./StandardSection.css";
 
@@ -29,12 +29,65 @@ function StandardSection() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  const minSwipeDistance = 50;
+
+  const nextSlide = () => {
+    setActiveSlide((currentSlide) =>
+      currentSlide === standards.length - 1 ? 0 : currentSlide + 1
+    );
+  };
+
+  const previousSlide = () => {
+    setActiveSlide((currentSlide) =>
+      currentSlide === 0 ? standards.length - 1 : currentSlide - 1
+    );
+  };
+
+  const handleTouchStart = (event) => {
+    setIsPaused(true);
+
+    touchEndX.current = null;
+    touchStartX.current = event.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (event) => {
+    touchEndX.current = event.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (
+      touchStartX.current !== null &&
+      touchEndX.current !== null
+    ) {
+      const distance =
+        touchStartX.current - touchEndX.current;
+
+      if (distance > minSwipeDistance) {
+        nextSlide();
+      }
+
+      if (distance < -minSwipeDistance) {
+        previousSlide();
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+
+    setIsPaused(false);
+  };
+
   useEffect(() => {
     if (isPaused) return;
 
     const timer = setTimeout(() => {
       setActiveSlide((currentSlide) =>
-        currentSlide === standards.length - 1 ? 0 : currentSlide + 1
+        currentSlide === standards.length - 1
+          ? 0
+          : currentSlide + 1
       );
     }, 5000);
 
@@ -49,9 +102,17 @@ function StandardSection() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="standard-wrapper">
+      <div
+        className="standard-wrapper"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+      >
         <div className="standard-card">
-          <p className="standard-brand">PALI COLORS</p>
+          <p className="standard-brand">
+            PALI COLORS
+          </p>
 
           <h2>Standard</h2>
 
@@ -65,7 +126,10 @@ function StandardSection() {
             {currentStandard.text}
           </p>
 
-          <Link to="/kontakt" className="standard-button">
+          <Link
+            to="/kontakt"
+            className="standard-button"
+          >
             Zatražite ponudu
           </Link>
 
@@ -84,12 +148,12 @@ function StandardSection() {
         </div>
 
         <div className="standard-image-wrapper">
-         <img
+          <img
             key={activeSlide}
             src={currentStandard.image}
             alt={currentStandard.title}
             className="standard-image"
-            />
+          />
         </div>
       </div>
     </section>

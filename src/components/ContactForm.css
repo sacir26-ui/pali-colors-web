@@ -1,0 +1,336 @@
+.premium-contact-form {
+  width: 100%;
+}
+
+.premium-form-heading {
+  margin-bottom: 34px;
+}
+
+.premium-form-heading > p {
+  margin: 0 0 9px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 4px;
+
+  color: #6686bb;
+}
+
+.premium-form-heading h3 {
+  margin: 0 0 12px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(27px, 2.4vw, 38px);
+  font-weight: 500;
+
+  line-height: 1.12;
+  text-transform: uppercase;
+
+  color: #111111;
+}
+
+.premium-form-heading span {
+  display: block;
+
+  max-width: 600px;
+
+  font-size: 14px;
+  line-height: 1.65;
+
+  color: #777777;
+}
+
+
+/* ========================================
+   GRID
+======================================== */
+
+.premium-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 22px 25px;
+}
+
+
+/* ========================================
+   FIELD
+======================================== */
+
+.premium-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.premium-field label,
+.premium-service-field > label {
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+
+  color: #5f5f5f;
+}
+
+.premium-field input,
+.premium-field textarea {
+  width: 100%;
+
+  border: 1px solid #d7d7d7;
+  outline: none;
+
+  background-color: #f7f7f7;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+
+  color: #222222;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.premium-field input {
+  height: 50px;
+
+  padding: 0 16px;
+}
+
+.premium-field textarea {
+  min-height: 135px;
+
+  padding: 15px 16px;
+
+  resize: vertical;
+}
+
+.premium-field input::placeholder,
+.premium-field textarea::placeholder {
+  color: #9a9a9a;
+}
+
+.premium-field input:focus,
+.premium-field textarea:focus {
+  border-color: #6686bb;
+
+  background-color: #ffffff;
+
+  box-shadow: 0 0 0 3px rgba(102, 134, 187, 0.1);
+}
+
+
+/* ========================================
+   USLUGE
+======================================== */
+
+.premium-service-field {
+  margin: 28px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+.premium-service-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 9px;
+}
+
+.premium-service-option {
+  min-height: 45px;
+
+  padding: 9px 12px;
+
+  border: 1px solid #d8d8d8;
+
+  background-color: #ffffff;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+
+  color: #666666;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.premium-service-option:hover {
+  border-color: #6686bb;
+
+  color: #6686bb;
+}
+
+.premium-service-option.active {
+  border-color: #6686bb;
+
+  background-color: #6686bb;
+
+  color: #ffffff;
+}
+
+
+/* ========================================
+   DATUM
+======================================== */
+
+.premium-form-date-grid {
+  margin-bottom: 25px;
+}
+
+
+/* ========================================
+   PORUKA
+======================================== */
+
+.premium-message {
+  margin-top: 2px;
+}
+
+
+/* ========================================
+   BOTTOM
+======================================== */
+
+.premium-form-bottom {
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.premium-form-bottom p {
+  max-width: 430px;
+
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.6;
+
+  color: #8a8a8a;
+}
+
+.premium-submit {
+  min-width: 180px;
+
+  padding: 14px 24px;
+
+  border: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  background-color: #6686bb;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.premium-submit span {
+  font-size: 19px;
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+.premium-submit:hover {
+  background-color: #7897c8;
+
+  transform: translateY(-2px);
+}
+
+.premium-submit:hover span {
+  transform: translateX(4px);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .premium-form-heading {
+    margin-bottom: 28px;
+  }
+
+  .premium-form-heading h3 {
+    font-size: 28px;
+  }
+
+  .premium-form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .premium-field input,
+  .premium-field textarea {
+    font-size: 16px;
+  }
+
+  .premium-service-options {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .premium-service-option {
+    min-height: 46px;
+  }
+
+  .premium-service-field {
+    margin: 24px 0;
+  }
+
+  .premium-form-date-grid {
+    margin-bottom: 20px;
+  }
+
+  .premium-form-bottom {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .premium-form-bottom p {
+    max-width: 100%;
+  }
+
+  .premium-submit {
+    width: 100%;
+
+    min-height: 48px;
+  }
+}

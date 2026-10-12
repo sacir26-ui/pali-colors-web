@@ -1,8 +1,10 @@
 .transformation-section {
   width: 100%;
-  padding: 80px 0 95px;
+
+  padding: 85px 0 90px;
 
   background-color: #ffffff;
+
   overflow: hidden;
 }
 
@@ -13,14 +15,24 @@
   text-align: center;
 }
 
-.transformation-title {
-  margin: 0 0 42px;
+
+/* ========================================
+   NASLOV
+======================================== */
+
+.transformation-heading {
+  width: min(1000px, 92%);
+  margin: 0 auto 50px;
+}
+
+.transformation-heading h2 {
+  margin: 0;
 
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(28px, 3vw, 46px);
+  font-size: clamp(34px, 3.5vw, 54px);
   font-weight: 500;
 
-  line-height: 1.2;
+  line-height: 1.15;
   text-transform: uppercase;
 
   color: #111111;
@@ -30,10 +42,14 @@
   color: #6686bb;
 }
 
-/* Š I Ž */
+
+/* ========================================
+   CUSTOM Š / Ž
+======================================== */
 
 .transformation-caron {
   position: relative;
+
   display: inline-block;
 }
 
@@ -41,8 +57,10 @@
   content: "ˇ";
 
   position: absolute;
+
   left: 50%;
   top: -0.24em;
+
   z-index: 5;
 
   transform: translateX(-50%);
@@ -50,45 +68,61 @@
   font-family: "Montserrat", sans-serif;
   font-size: 0.66em;
   font-weight: 700;
-  line-height: 1;
 
+  line-height: 1;
   letter-spacing: 0;
+
   color: currentColor;
 
   pointer-events: none;
 }
-/* CAROUSEL */
 
-.transformation-slider {
+
+/* ========================================
+   CAROUSEL
+======================================== */
+
+.transformation-carousel {
   position: relative;
 
   width: 100%;
-  height: 330px;
+  height: 360px;
 
-  overflow: hidden;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  touch-action: pan-y;
 }
 
 .transformation-slide {
   position: absolute;
 
-  top: 50%;
-  left: 50%;
-
   padding: 0;
   border: 0;
+
+  display: block;
 
   background: transparent;
 
   overflow: hidden;
+
   cursor: pointer;
 
   transition:
     transform 0.8s ease,
     opacity 0.8s ease,
     width 0.8s ease,
-    height 0.8s ease;
+    height 0.8s ease,
+    filter 0.8s ease;
 
-  transform-origin: center;
+  will-change:
+    transform,
+    opacity,
+    width,
+    height;
 }
 
 .transformation-slide img {
@@ -97,147 +131,178 @@
 
   display: block;
 
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
-/* SREDNJI AUTO */
+
+/* ========================================
+   CENTER
+======================================== */
 
 .transformation-slide-center {
-  z-index: 3;
-
   width: 660px;
   height: 310px;
+
+  z-index: 4;
 
   opacity: 1;
 
   transform:
-    translate(-50%, -50%)
     translateX(0)
     scale(1);
+
+  filter: brightness(1);
 }
 
-/* LIJEVI AUTO */
+
+/* ========================================
+   LEFT
+======================================== */
 
 .transformation-slide-left {
-  z-index: 2;
-
   width: 440px;
   height: 230px;
+
+  z-index: 2;
 
   opacity: 0.25;
 
   transform:
-    translate(-50%, -50%)
     translateX(-650px)
-    scale(0.9);
+    scale(0.96);
+
+  filter: brightness(0.8);
 }
 
-/* DESNI AUTO */
+
+/* ========================================
+   RIGHT
+======================================== */
 
 .transformation-slide-right {
-  z-index: 2;
-
   width: 440px;
   height: 230px;
+
+  z-index: 2;
 
   opacity: 0.25;
 
   transform:
-    translate(-50%, -50%)
     translateX(650px)
-    scale(0.9);
+    scale(0.96);
+
+  filter: brightness(0.8);
 }
 
-/* SLIKA KOJA TRENUTNO NIJE VIDLJIVA */
+
+/* ========================================
+   HIDDEN
+======================================== */
 
 .transformation-slide-hidden {
-  z-index: 1;
-
   width: 380px;
   height: 210px;
+
+  z-index: 1;
 
   opacity: 0;
 
   pointer-events: none;
 
   transform:
-    translate(-50%, -50%)
     translateX(900px)
-    scale(0.8);
+    scale(0.9);
 }
 
-.transformation-slide-left:hover,
-.transformation-slide-right:hover {
-  opacity: 0.48;
-}
 
-/* TOČKICE */
+/* ========================================
+   DOTS
+======================================== */
 
 .transformation-dots {
-  margin-top: 8px;
+  margin-top: 5px;
 
   display: flex;
+  align-items: center;
   justify-content: center;
 
   gap: 9px;
 }
 
 .transformation-dot {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
 
   padding: 0;
 
   border: 0;
   border-radius: 50%;
 
-  background-color: #b7b7b7;
+  background-color: #c4c4c4;
 
   cursor: pointer;
 
   transition:
-    background-color 0.25s ease,
-    transform 0.25s ease;
+    width 0.25s ease,
+    border-radius 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .transformation-dot.active {
+  width: 25px;
+
+  border-radius: 10px;
+
   background-color: #6686bb;
-  transform: scale(1.2);
 }
 
-/* TEKST */
 
-.transformation-text {
-  max-width: 850px;
+/* ========================================
+   TEKST
+======================================== */
 
-  margin: 30px auto 0;
+.transformation-content {
+  width: min(850px, 90%);
+  margin: 38px auto 0;
+}
+
+.transformation-content p {
+  margin: 0 auto 7px;
 
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.65;
 
-  color: #555555;
+  color: #5e5e5e;
 }
 
-.transformation-text-bottom {
-  margin-top: 4px;
+.transformation-content p:last-of-type {
+  margin-bottom: 0;
 }
 
-/* GUMBI */
+
+/* ========================================
+   BUTTONS
+======================================== */
 
 .transformation-buttons {
-  margin-top: 26px;
+  margin-top: 28px;
 
   display: flex;
+  align-items: center;
   justify-content: center;
 
-  gap: 16px;
+  gap: 14px;
 }
 
 .transformation-button {
-  min-width: 175px;
+  min-width: 180px;
 
-  padding: 13px 26px;
+  padding: 13px 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 50px;
 
@@ -246,27 +311,201 @@
 
   transition:
     transform 0.25s ease,
-    background-color 0.25s ease;
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.transformation-button:hover {
-  transform: translateY(-2px);
-}
+.transformation-button-primary {
+  border: 1px solid #6686bb;
 
-.transformation-button-dark {
-  background-color: #5e5e5e;
-  color: #ffffff;
-}
-
-.transformation-button-dark:hover {
-  background-color: #494949;
-}
-
-.transformation-button-blue {
   background-color: #6686bb;
   color: #ffffff;
 }
 
-.transformation-button-blue:hover {
+.transformation-button-primary:hover {
+  transform: translateY(-2px);
+
   background-color: #7897c8;
+  border-color: #7897c8;
+}
+
+.transformation-button-secondary {
+  border: 1px solid #222222;
+
+  background-color: transparent;
+  color: #222222;
+}
+
+.transformation-button-secondary:hover {
+  transform: translateY(-2px);
+
+  background-color: #222222;
+  color: #ffffff;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1050px) {
+  .transformation-slide-center {
+    width: 570px;
+    height: 290px;
+  }
+
+  .transformation-slide-left {
+    width: 380px;
+    height: 220px;
+
+    transform:
+      translateX(-540px)
+      scale(0.96);
+  }
+
+  .transformation-slide-right {
+    width: 380px;
+    height: 220px;
+
+    transform:
+      translateX(540px)
+      scale(0.96);
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .transformation-section {
+    padding: 65px 0 70px;
+  }
+
+  .transformation-inner {
+    width: 100%;
+  }
+
+  .transformation-heading {
+    width: 88%;
+
+    margin-bottom: 32px;
+  }
+
+  .transformation-heading h2 {
+    font-size: clamp(28px, 8vw, 38px);
+
+    line-height: 1.15;
+  }
+
+  .transformation-caron::after {
+    top: -0.22em;
+
+    font-size: 0.65em;
+  }
+
+  .transformation-carousel {
+    height: 255px;
+
+    touch-action: pan-y;
+  }
+
+  .transformation-slide-center {
+    width: 82%;
+    max-width: 360px;
+
+    height: 215px;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+
+  .transformation-slide-left {
+    width: 68%;
+    max-width: 290px;
+
+    height: 175px;
+
+    opacity: 0.22;
+
+    transform:
+      translateX(-88%)
+      scale(0.94);
+  }
+
+  .transformation-slide-right {
+    width: 68%;
+    max-width: 290px;
+
+    height: 175px;
+
+    opacity: 0.22;
+
+    transform:
+      translateX(88%)
+      scale(0.94);
+  }
+
+  .transformation-slide-hidden {
+    width: 60%;
+    height: 165px;
+
+    transform:
+      translateX(130%)
+      scale(0.9);
+  }
+
+  .transformation-dots {
+    margin-top: 0;
+  }
+
+  .transformation-content {
+    width: 86%;
+
+    margin-top: 30px;
+  }
+
+  .transformation-content p {
+    font-size: 15px;
+  }
+
+  .transformation-buttons {
+    flex-direction: column;
+
+    gap: 11px;
+  }
+
+  .transformation-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+
+/* ========================================
+   MANJI MOBITELI
+======================================== */
+
+@media (max-width: 420px) {
+  .transformation-carousel {
+    height: 225px;
+  }
+
+  .transformation-slide-center {
+    width: 84%;
+    height: 195px;
+  }
+
+  .transformation-slide-left,
+  .transformation-slide-right {
+    width: 67%;
+    height: 155px;
+  }
+
+  .transformation-content {
+    width: 88%;
+  }
 }

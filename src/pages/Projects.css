@@ -3,9 +3,10 @@
   background-color: #ffffff;
 }
 
-/* =========================
+
+/* ========================================
    HERO
-========================= */
+======================================== */
 
 .projects-hero {
   position: relative;
@@ -68,9 +69,10 @@
   color: #ffffff;
 }
 
-/* =========================
+
+/* ========================================
    UVOD
-========================= */
+======================================== */
 
 .projects-intro {
   padding: 55px 0;
@@ -98,12 +100,13 @@
   margin-bottom: 0;
 }
 
-/* =========================
+
+/* ========================================
    GALERIJA
-========================= */
+======================================== */
 
 .projects-gallery {
-  padding: 28px 0 70px;
+  padding: 55px 0 75px;
 
   background-color: #272a2c;
 }
@@ -118,9 +121,10 @@
   gap: 22px;
 }
 
-/* =========================
+
+/* ========================================
    KARTICE
-========================= */
+======================================== */
 
 .project-card {
   position: relative;
@@ -130,6 +134,7 @@
   overflow: hidden;
 
   background-color: #111111;
+
   cursor: pointer;
 }
 
@@ -193,6 +198,8 @@
 }
 
 .project-arrow {
+  flex-shrink: 0;
+
   font-size: 30px;
   line-height: 1;
 
@@ -209,15 +216,17 @@
 
 .project-card:hover .project-arrow {
   transform: translateX(5px);
+
   color: #6686bb;
 }
 
-/* =========================
-   KONTAKT
-========================= */
+
+/* ========================================
+   KONTAKT FORMA
+======================================== */
 
 .projects-contact {
-  padding: 38px 0 55px;
+  padding: 55px 0 65px;
 
   background-color: #ffffff;
 }
@@ -228,12 +237,12 @@
 }
 
 .projects-contact h2 {
-  margin: 0 0 26px;
+  margin: 0 0 30px;
 
   text-align: center;
 
   font-family: "Orbitron", sans-serif;
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 500;
 
   text-transform: uppercase;
@@ -246,23 +255,23 @@
 }
 
 .projects-form-row {
+  margin-bottom: 16px;
+
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
 
   gap: 24px;
-
-  margin-bottom: 14px;
 }
 
 .projects-form-field {
   display: flex;
   flex-direction: column;
 
-  gap: 5px;
+  gap: 6px;
 }
 
 .projects-form-field label {
-  font-size: 12px;
+  font-size: 13px;
 
   color: #777777;
 }
@@ -275,41 +284,51 @@
   border: 0;
   outline: none;
 
-  border-radius: 20px;
-
   background-color: #d6d6d6;
 
   font-family: inherit;
   font-size: 14px;
 
   color: #333333;
+
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .projects-form-field input,
 .projects-form-field select {
-  height: 38px;
+  height: 42px;
 
   padding: 0 16px;
+
+  border-radius: 22px;
 }
 
 .projects-form-field textarea {
-  height: 78px;
+  min-height: 82px;
 
   padding: 12px 16px;
 
-  resize: none;
+  border-radius: 20px;
+
+  resize: vertical;
 }
 
-.projects-form-row-bottom {
-  align-items: start;
+.projects-form-field input:focus,
+.projects-form-field select:focus,
+.projects-form-field textarea:focus {
+  background-color: #dedede;
+
+  box-shadow: 0 0 0 2px rgba(102, 134, 187, 0.25);
 }
 
 .projects-submit {
   width: 60%;
 
-  margin: 10px auto 0;
+  margin: 12px auto 0;
 
-  padding: 12px 25px;
+  padding: 13px 25px;
 
   display: block;
 
@@ -317,7 +336,6 @@
   border-radius: 50px;
 
   background-color: #6686bb;
-
   color: #ffffff;
 
   font-size: 13px;
@@ -332,5 +350,205 @@
 
 .projects-submit:hover {
   background-color: #7897c8;
+
   transform: translateY(-2px);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 950px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-card {
+    height: 400px;
+  }
+
+  .projects-form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .projects-message-field {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  /* HERO */
+
+  .projects-hero {
+  min-height: 560px;
+  background-position: 55% center;
+}
+
+  .projects-hero-content {
+    width: 88%;
+  }
+
+  .projects-hero-content p {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+  }
+
+  .projects-hero-content h1 {
+    max-width: 100%;
+
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+
+  /* UVOD */
+
+  .projects-intro {
+    padding: 50px 0 45px;
+  }
+
+  .projects-intro-inner {
+    width: 88%;
+  }
+
+  .projects-intro-inner p {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  /* GALERIJA */
+
+  .projects-gallery {
+    padding: 35px 0 55px;
+  }
+
+  .projects-grid {
+    width: 88%;
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .project-card {
+    width: 100%;
+
+    height: 390px;
+  }
+
+  .project-card-content {
+    left: 20px;
+    right: 20px;
+    bottom: 19px;
+  }
+
+  .project-card-content h2 {
+    font-size: 17px;
+  }
+
+  .project-card-content p {
+    font-size: 13px;
+  }
+
+  .project-arrow {
+    font-size: 27px;
+  }
+
+
+  /* KONTAKT */
+
+  .projects-contact {
+    padding: 50px 0 55px;
+  }
+
+  .projects-contact-inner {
+    width: 88%;
+  }
+
+  .projects-contact h2 {
+    margin-bottom: 26px;
+
+    font-size: 27px;
+  }
+
+  .projects-form-row,
+  .projects-form-row-bottom {
+    margin-bottom: 0;
+
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .projects-message-field {
+    grid-column: auto;
+  }
+
+  .projects-form-field {
+    margin-bottom: 15px;
+  }
+
+  .projects-form-field label {
+    font-size: 13px;
+  }
+
+  .projects-form-field input,
+  .projects-form-field select,
+  .projects-form-field textarea {
+    font-size: 16px;
+  }
+
+  .projects-form-field input,
+  .projects-form-field select {
+    height: 46px;
+  }
+
+  .projects-form-field textarea {
+    min-height: 120px;
+  }
+
+  .projects-submit {
+    width: 100%;
+    max-width: 280px;
+
+    margin-top: 5px;
+  }
+}
+
+
+/* ========================================
+   MANJI MOBITELI
+======================================== */
+
+@media (max-width: 420px) {
+  .projects-hero {
+    min-height: 540px;
+  }
+
+  .projects-hero-content,
+  .projects-intro-inner,
+  .projects-grid,
+  .projects-contact-inner {
+    width: 90%;
+  }
+
+  .project-card {
+    height: 350px;
+  }
+
+  .projects-gallery {
+    padding-top: 30px;
+  }
+
+  .projects-contact h2 {
+    font-size: 25px;
+  }
 }

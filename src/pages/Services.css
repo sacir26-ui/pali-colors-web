@@ -12,7 +12,7 @@
   position: relative;
 
   width: 100%;
-  min-height: 470px;
+  min-height: 560px;
 
   display: flex;
   align-items: center;
@@ -73,6 +73,7 @@
 
 .services-page-hero h1 span {
   display: block;
+
   margin-top: 5px;
 
   color: #6686bb;
@@ -196,19 +197,7 @@
 
 
 /* ========================================
-   RASPORED KAO NA CANVI
-
-   01 Lakiranje:
-   tekst lijevo / slika desno
-
-   02 Limarija:
-   slika lijevo / tekst desno
-
-   03 Poliranje:
-   tekst lijevo / slika desno
-
-   04 Spot Repair:
-   slika lijevo / tekst desno
+   DESKTOP RASPORED
 ======================================== */
 
 .services-page-item-reverse .services-page-image {
@@ -247,13 +236,7 @@
 
 
 /* ========================================
-   VELIKI PATTERN
-
-   Slika lijevo:
-   pattern izlazi lijevo
-
-   Slika desno:
-   pattern izlazi desno
+   PATTERN
 ======================================== */
 
 .services-page-image::after {
@@ -300,7 +283,6 @@
 
 .services-page-info {
   position: relative;
-
   z-index: 3;
 
   max-width: 520px;
@@ -435,8 +417,6 @@
   display: block;
 
   margin-top: 4px;
-
-  color: #111111;
 }
 
 .services-page-cta p {
@@ -474,4 +454,237 @@
   transform: translateY(-2px);
 
   background-color: #7897c8;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 950px) {
+  .services-page-item {
+    gap: 55px;
+
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .services-page-cta-content {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+  }
+
+  .services-page-cta-button {
+    grid-column: 1 / -1;
+
+    justify-self: center;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .services-page-hero {
+    min-height: 560px;
+  }
+
+  .services-page-hero-content {
+    width: 88%;
+  }
+
+  .services-page-hero-content p {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+  }
+
+  .services-page-hero h1 {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+
+  /* IKONE */
+
+.services-icon-nav {
+  padding: 27px 0 30px;
+}
+
+.services-icon-nav-inner {
+  width: 94%;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+.services-icon-item img {
+  width: 58px;
+  height: 58px;
+
+  margin-bottom: 8px;
+}
+
+.services-icon-item span {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+
+  /* USLUGE */
+
+  .services-page-item {
+    min-height: 0;
+
+    padding: 55px 6% 65px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 38px;
+  }
+
+  /*
+    Na mobitelu tekst ide prvi,
+    slika ispod - za SVE usluge
+  */
+
+  .services-page-info,
+  .services-page-item-reverse .services-page-info {
+    width: 100%;
+    max-width: 100%;
+
+    order: 1;
+  }
+
+  .services-page-image,
+  .services-page-item-reverse .services-page-image {
+    width: 100%;
+
+    height: 270px;
+
+    order: 2;
+  }
+
+  .services-page-number {
+    font-size: 11px;
+  }
+
+  .services-page-info h2 {
+    margin-bottom: 16px;
+
+    font-size: 34px;
+  }
+
+  .services-page-info > p {
+    max-width: 100%;
+
+    margin-bottom: 22px;
+
+    font-size: 15px;
+  }
+
+  .services-page-info li {
+    font-size: 11px;
+
+    line-height: 1.55;
+  }
+
+
+  /* PATTERN NA MOBITELU */
+
+  .services-page-image::after,
+  .services-page-item-reverse .services-page-image::after {
+    width: 72%;
+    height: 86%;
+
+    left: -24px;
+    right: auto;
+
+    bottom: -28px;
+  }
+
+
+  /* CTA */
+
+  .services-page-cta {
+    padding: 55px 0;
+  }
+
+  .services-page-cta-content {
+    width: 88%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    text-align: center;
+  }
+
+  .services-page-cta h2 {
+    font-size: 30px;
+  }
+
+  .services-page-cta p {
+    max-width: 430px;
+
+    font-size: 15px;
+  }
+
+  .services-page-cta-button {
+    width: 100%;
+    max-width: 280px;
+
+    margin-top: 5px;
+  }
+}
+
+
+/* ========================================
+   MANJI MOBITELI
+======================================== */
+
+@media (max-width: 420px) {
+  .services-page-hero {
+    min-height: 540px;
+  }
+
+  .services-page-hero-content {
+    width: 90%;
+  }
+
+  
+
+  .services-page-item {
+    padding:
+      48px
+      5%
+      58px;
+
+    gap: 34px;
+  }
+
+  .services-page-info h2 {
+    font-size: 30px;
+  }
+
+  .services-page-image,
+  .services-page-item-reverse .services-page-image {
+    height: 235px;
+  }
+
+  .services-page-image::after,
+  .services-page-item-reverse .services-page-image::after {
+    left: -18px;
+
+    bottom: -22px;
+  }
+
+  .services-page-cta-content {
+    width: 90%;
+  }
 }

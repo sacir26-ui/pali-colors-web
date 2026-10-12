@@ -1,5 +1,6 @@
 .contact-page {
   width: 100%;
+
   background-color: #ffffff;
 }
 
@@ -29,9 +30,9 @@
 
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.82) 0%,
-    rgba(0, 0, 0, 0.5) 55%,
-    rgba(0, 0, 0, 0.28) 100%
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.56) 50%,
+    rgba(0, 0, 0, 0.22) 100%
   );
 }
 
@@ -46,7 +47,7 @@
 }
 
 .contact-hero-content p {
-  margin: 0 0 13px;
+  margin: 0 0 14px;
 
   font-family: "Orbitron", sans-serif;
   font-size: 13px;
@@ -61,7 +62,7 @@
   margin: 0;
 
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(40px, 4.5vw, 64px);
+  font-size: clamp(40px, 4.5vw, 66px);
   font-weight: 500;
 
   line-height: 1.08;
@@ -72,264 +73,404 @@
 
 
 /* ========================================
-   FORMA
+   MAIN
 ======================================== */
 
-.contact-form-section {
-  padding: 65px 0 75px;
+.contact-main {
+  padding: 85px 0 95px;
+
+  background-color: #eceeef;
+}
+
+.contact-main-inner {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+
+  align-items: stretch;
 
   background-color: #ffffff;
-}
 
-.contact-form-inner {
-  width: min(960px, 86%);
-  margin: 0 auto;
-}
-
-.contact-form-inner h2 {
-  margin: 0 0 38px;
-
-  text-align: center;
-
-  font-family: "Orbitron", sans-serif;
-  font-size: clamp(30px, 3vw, 42px);
-  font-weight: 500;
-
-  text-transform: uppercase;
-
-  color: #111111;
-}
-
-.contact-form {
-  width: 100%;
-}
-
-.contact-form-row {
-  display: grid;
-  gap: 28px;
-}
-
-.contact-form-row-two {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.contact-field {
-  margin-bottom: 18px;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 6px;
-}
-
-.contact-field label {
-  font-size: 14px;
-  line-height: 1.3;
-
-  color: #676767;
-}
-
-.contact-field input,
-.contact-field select,
-.contact-field textarea {
-  width: 100%;
-
-  border: 0;
-  outline: none;
-
-  background-color: #d2d2d2;
-
-  font-family: inherit;
-  font-size: 15px;
-
-  color: #333333;
-
-  transition:
-    background-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.contact-field input,
-.contact-field select {
-  height: 46px;
-
-  padding: 0 18px;
-
-  border-radius: 24px;
-}
-
-.contact-field textarea {
-  min-height: 135px;
-
-  padding: 15px 18px;
-
-  border-radius: 20px;
-
-  resize: vertical;
-}
-
-.contact-field input::placeholder,
-.contact-field textarea::placeholder {
-  color: #858585;
-}
-
-.contact-field input:focus,
-.contact-field select:focus,
-.contact-field textarea:focus {
-  background-color: #dddddd;
-
-  box-shadow: 0 0 0 2px rgba(102, 134, 187, 0.28);
-}
-
-.contact-submit {
-  width: 100%;
-
-  margin-top: 8px;
-  padding: 14px 30px;
-
-  border: 0;
-  border-radius: 50px;
-
-  background-color: #6686bb;
-  color: #ffffff;
-
-  font-size: 14px;
-  font-weight: 500;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease;
-}
-
-.contact-submit:hover {
-  transform: translateY(-2px);
-
-  background-color: #7897c8;
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.09);
 }
 
 
 /* ========================================
-   JAVITE NAM SE
+   LIJEVA STRANA
 ======================================== */
 
-.contact-info-section {
-  padding: 80px 0 90px;
+.contact-sidebar {
+  position: relative;
 
-  background-color: #e5e5e5;
+  padding: 55px 45px;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(
+      150deg,
+      #111315 0%,
+      #080909 100%
+    );
+
+  color: #ffffff;
 
   overflow: hidden;
 }
 
-.contact-info-inner {
-  width: min(1150px, 88%);
-  margin: 0 auto;
+.contact-sidebar::after {
+  content: "";
 
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-
-  align-items: center;
-
-  gap: 90px;
-}
-
-
-/* ========================================
-   SLIKA + PATTERN
-======================================== */
-
-.contact-info-image {
-  position: relative;
-
-  width: 100%;
-  max-width: 560px;
-  height: 360px;
-}
-
-.contact-pattern {
   position: absolute;
-  z-index: 1;
 
-  width: 72%;
-  height: 82%;
+  width: 280px;
+  height: 280px;
 
-  left: -45px;
-  bottom: -38px;
+  right: -150px;
+  bottom: -150px;
 
-  object-fit: cover;
+  border: 1px solid rgba(102, 134, 187, 0.2);
+
+  transform: rotate(45deg);
 }
 
-.contact-cars-image {
+.contact-sidebar-top,
+.contact-sidebar-details,
+.contact-map-link {
   position: relative;
+
   z-index: 2;
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-  object-position: center;
 }
 
-
-/* ========================================
-   KONTAKT PODACI
-======================================== */
-
-.contact-info-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  text-align: center;
-}
-
-.contact-info-content h2 {
-  margin: 0 0 34px;
+.contact-sidebar-eyebrow {
+  margin: 0 0 14px;
 
   font-family: "Orbitron", sans-serif;
-  font-size: clamp(32px, 3vw, 46px);
+  font-size: 11px;
   font-weight: 500;
 
-  text-transform: uppercase;
-
-  color: #111111;
-}
-
-.contact-info-item {
-  margin-bottom: 27px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 10px;
-
-  font-size: 17px;
-
-  color: #656565;
-
-  transition: color 0.25s ease;
-}
-
-.contact-info-item svg {
-  width: 36px;
-  height: 36px;
+  letter-spacing: 4px;
 
   color: #6686bb;
 }
 
-.contact-info-item:hover {
-  color: #111111;
+.contact-sidebar h2 {
+  margin: 0 0 25px;
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 500;
+
+  line-height: 1.08;
+  text-transform: uppercase;
+
+  color: #ffffff;
 }
 
-.contact-info-location {
-  margin: 5px 0 0;
+.contact-sidebar-text {
+  margin: 0 0 13px;
 
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.75;
 
-  color: #727272;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+
+/* ========================================
+   KONTAKT DETALJI
+======================================== */
+
+.contact-sidebar-details {
+  margin-top: 45px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 22px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  color: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.contact-detail-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(102, 134, 187, 0.35);
+
+  background-color: transparent;
+
+  color: #6686bb;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-detail:hover {
+  transform: translateX(4px);
+}
+
+.contact-detail:hover .contact-detail-icon {
+  background-color: #6686bb;
+  border-color: #6686bb;
+
+  color: #ffffff;
+
+  transform: scale(1.08);
+}
+
+.contact-detail:hover strong {
+  color: #ffffff;
+}
+
+.contact-detail:hover small {
+  color: #6686bb;
+}
+
+.contact-detail-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.contact-detail div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.contact-detail small {
+  font-size: 10px;
+transition: color 0.25s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.contact-detail strong {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  transition: color 0.25s ease;
+
+  color: rgba(255, 255, 255, 0.84);
+}
+
+
+/* ========================================
+   MAP LINK
+======================================== */
+
+.contact-map-link {
+  width: fit-content;
+
+  margin-top: auto;
+  padding-top: 45px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #6686bb;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition:
+    gap 0.25s ease,
+    color 0.25s ease;
+}
+
+.contact-map-link svg {
+  width: 12px;
+  height: 12px;
+}
+
+.contact-map-link:hover {
+  gap: 13px;
+
+  color: #ffffff;
+}
+
+
+/* ========================================
+   FORMA CARD
+======================================== */
+
+.contact-form-card {
+  padding: 55px 55px 50px;
+
+  background-color: #ffffff;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 950px) {
+  .contact-main-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-sidebar {
+    padding: 45px;
+  }
+
+  .contact-sidebar-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px 30px;
+  }
+
+  .contact-map-link {
+    margin-top: 0;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: 560px;
+  }
+
+  .contact-hero-content {
+    width: 88%;
+  }
+
+  .contact-hero-content p {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+  }
+
+  .contact-hero-content h1 {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+
+  /* MAIN */
+
+  .contact-main {
+    padding: 55px 0 65px;
+  }
+
+  .contact-main-inner {
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow:
+      0 18px 45px rgba(0, 0, 0, 0.08);
+  }
+
+
+  /* SIDEBAR */
+
+  .contact-sidebar {
+    padding: 38px 28px;
+  }
+
+  .contact-sidebar h2 {
+    font-size: 31px;
+  }
+
+  .contact-sidebar-text {
+    font-size: 14px;
+  }
+
+  .contact-sidebar-details {
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+  }
+
+  .contact-detail-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .contact-map-link {
+    padding-top: 30px;
+  }
+
+
+  /* FORMA */
+
+  .contact-form-card {
+    padding: 38px 25px 34px;
+  }
+}
+
+
+/* ========================================
+   MANJI MOBITELI
+======================================== */
+
+@media (max-width: 420px) {
+  .contact-hero {
+    min-height: 540px;
+  }
+
+  .contact-hero-content {
+    width: 90%;
+  }
+
+  .contact-main-inner {
+    width: 92%;
+  }
+
+  .contact-sidebar {
+    padding:
+      34px
+      23px;
+  }
+
+  .contact-sidebar h2 {
+    font-size: 28px;
+  }
+
+  .contact-form-card {
+    padding:
+      34px
+      20px
+      30px;
+  }
 }

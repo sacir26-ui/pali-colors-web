@@ -1,56 +1,103 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./TransformationSection.css";
 
 function TransformationSection() {
-  const stages = [
-    {
-      image: `${process.env.PUBLIC_URL}/assets/images/transform-1.webp`,
-      alt: "Priprema vozila prije lakiranja",
-    },
-    {
-      image: `${process.env.PUBLIC_URL}/assets/images/transform-2.webp`,
-      alt: "Vozilo tijekom pripreme za lakiranje",
-    },
-    {
-      image: `${process.env.PUBLIC_URL}/assets/images/transform-3.webp`,
-      alt: "Vozilo tijekom promjene boje",
-    },
-    {
-      image: `${process.env.PUBLIC_URL}/assets/images/transform-4.webp`,
-      alt: "Završeni izgled vozila",
-    },
+  const slides = [
+    `${process.env.PUBLIC_URL}/assets/images/transform-1.webp`,
+    `${process.env.PUBLIC_URL}/assets/images/transform-2.webp`,
+    `${process.env.PUBLIC_URL}/assets/images/transform-3.webp`,
+    `${process.env.PUBLIC_URL}/assets/images/transform-4.webp`,
   ];
 
-  const [activeStage, setActiveStage] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    if (isPaused) return;
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
-    const timer = setTimeout(() => {
-      setActiveStage((currentStage) =>
-        currentStage === stages.length - 1 ? 0 : currentStage + 1
-      );
-    }, 4000);
+  const minSwipeDistance = 50;
 
-    return () => clearTimeout(timer);
-  }, [activeStage, isPaused, stages.length]);
+  const nextSlide = () => {
+    setActiveSlide((current) =>
+      current === slides.length - 1 ? 0 : current + 1
+    );
+  };
+
+  const previousSlide = () => {
+    setActiveSlide((current) =>
+      current === 0 ? slides.length - 1 : current - 1
+    );
+  };
+
+  const handleTouchStart = (event) => {
+    setIsPaused(true);
+
+    touchEndX.current = null;
+    touchStartX.current = event.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (event) => {
+    touchEndX.current = event.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (
+      touchStartX.current !== null &&
+      touchEndX.current !== null
+    ) {
+      const distance =
+        touchStartX.current - touchEndX.current;
+
+      if (distance > minSwipeDistance) {
+        nextSlide();
+      }
+
+      if (distance < -minSwipeDistance) {
+        previousSlide();
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+
+    setIsPaused(false);
+  };
+
+useEffect(() => {
+  if (isPaused) return;
+
+  const timer = setTimeout(() => {
+    setActiveSlide((current) =>
+      current === slides.length - 1 ? 0 : current + 1
+    );
+  }, 4000);
+
+  return () => clearTimeout(timer);
+}, [activeSlide, isPaused, slides.length]);
 
   const getSlidePosition = (index) => {
-    let difference = index - activeStage;
+    const previousIndex =
+      activeSlide === 0
+        ? slides.length - 1
+        : activeSlide - 1;
 
-    if (difference > stages.length / 2) {
-      difference -= stages.length;
+    const nextIndex =
+      activeSlide === slides.length - 1
+        ? 0
+        : activeSlide + 1;
+
+    if (index === activeSlide) {
+      return "center";
     }
 
-    if (difference < -stages.length / 2) {
-      difference += stages.length;
+    if (index === previousIndex) {
+      return "left";
     }
 
-    if (difference === 0) return "center";
-    if (difference === 1) return "right";
-    if (difference === -1) return "left";
+    if (index === nextIndex) {
+      return "right";
+    }
 
     return "hidden";
   };
@@ -62,65 +109,91 @@ function TransformationSection() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="transformation-inner">
-        <h2 className="transformation-title">
-          Va<span className="transformation-caron">s</span>e vozilo zaslu
-          <span className="transformation-caron">z</span>uje{" "}
-          <span className="transformation-brand">Pali Colors</span> tretman
-        </h2>
+        <div className="transformation-heading">
+          <h2>
+            Va
+            <span className="transformation-caron">
+              s
+            </span>
+            e vozilo zaslu
+            <span className="transformation-caron">
+              z
+            </span>
+            uje{" "}
+            <span className="transformation-brand">
+              Pali Colors
+            </span>{" "}
+            tretman
+          </h2>
+        </div>
 
-        <div className="transformation-slider">
-          {stages.map((stage, index) => {
+        <div
+          className="transformation-carousel"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
+        >
+          {slides.map((slide, index) => {
             const position = getSlidePosition(index);
 
             return (
               <button
-                key={stage.image}
+                type="button"
                 className={`transformation-slide transformation-slide-${position}`}
-                onClick={() => setActiveStage(index)}
-                aria-label={`Prikaži fazu ${index + 1}`}
+                key={slide}
+                onClick={() => setActiveSlide(index)}
+                aria-label={`Prikaži fotografiju ${index + 1}`}
               >
-                <img src={stage.image} alt={stage.alt} />
+                <img
+                  src={slide}
+                  alt={`Pali Colors faza rada ${index + 1}`}
+                />
               </button>
             );
           })}
         </div>
 
         <div className="transformation-dots">
-          {stages.map((stage, index) => (
+          {slides.map((slide, index) => (
             <button
-              key={stage.image}
+              type="button"
+              key={slide}
               className={`transformation-dot ${
-                activeStage === index ? "active" : ""
+                activeSlide === index ? "active" : ""
               }`}
-              onClick={() => setActiveStage(index)}
-              aria-label={`Prikaži fazu ${index + 1}`}
+              onClick={() => setActiveSlide(index)}
+              aria-label={`Prikaži fotografiju ${index + 1}`}
             ></button>
           ))}
         </div>
 
-        <p className="transformation-text">
-          Imate oštećenje koje želite sanirati, planirate kompletno lakiranje
-          ili svom automobilu želite dati novi izgled?
-        </p>
+        <div className="transformation-content">
+          <p>
+            Imate oštećenje koje želite sanirati,
+            planirate kompletno lakiranje ili svom
+            automobilu želite dati novi izgled?
+          </p>
 
-        <p className="transformation-text transformation-text-bottom">
-          Pošaljite nam upit i dogovorite procjenu.
-        </p>
+          <p>
+            Pošaljite nam upit i dogovorite procjenu.
+          </p>
 
-        <div className="transformation-buttons">
-          <Link
-            to="/kontakt"
-            className="transformation-button transformation-button-dark"
-          >
-            Zatražite ponudu
-          </Link>
+          <div className="transformation-buttons">
+            <Link
+              to="/kontakt"
+              className="transformation-button transformation-button-primary"
+            >
+              Zatražite ponudu
+            </Link>
 
-          <Link
-            to="/kontakt"
-            className="transformation-button transformation-button-blue"
-          >
-            Kontaktirajte nas
-          </Link>
+            <Link
+              to="/kontakt"
+              className="transformation-button transformation-button-secondary"
+            >
+              Kontaktirajte nas
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,7 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
   return (
     <header className="navbar">
       <div className="navbar-inner">
@@ -12,7 +20,19 @@ function Navbar() {
           />
         </NavLink>
 
-        <nav className="navbar-links">
+        <button
+          type="button"
+          className={`navbar-toggle ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Otvori navigaciju"
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav className={`navbar-links ${menuOpen ? "open" : ""}`}>
           <NavLink to="/">Naslovna</NavLink>
           <NavLink to="/o-nama">O nama</NavLink>
           <NavLink to="/usluge">Usluge</NavLink>
