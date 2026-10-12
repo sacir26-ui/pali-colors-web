@@ -20,14 +20,17 @@ function Hero() {
 
       <div className="hero-content">
         <p className="hero-small-title">PALI COLORS</p>
-
         <h1>
-          Savr<span className="hero-s-caron">s</span>ena boja.
+          <span className="hero-main-line">
+            Savr<span className="hero-s-caron">s</span>ena boja.
+          </span>
+
           <span className="hero-title-line">
-            Besprijekoran fini<span className="hero-s-caron">s</span>.
+            Besprijekoran
+            <br className="hero-mobile-break" />
+            {" "}fini<span className="hero-s-caron">s</span>.
           </span>
         </h1>
-
         <p className="hero-description">
           Preciznost koju vidite. Kvaliteta koju osjećate.
         </p>
